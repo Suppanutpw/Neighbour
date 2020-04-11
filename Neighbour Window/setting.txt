@@ -1,4 +1,4 @@
 easy: -1
 normal: -1
 hard: -1
-resolution: 600 600
+resolution: 700 700
