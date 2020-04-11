@@ -1,0 +1,4 @@
+easy: 6
+normal: -1
+hard: -1
+resolution: 800 800
