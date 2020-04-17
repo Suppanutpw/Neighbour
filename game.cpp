@@ -6,11 +6,12 @@ GameObject* villager[12];
 GameObject* house[12];
 GameObject* backgroundGame;
 
-GameObject* backToMenu;
+GameObject* scoreBar; // Moves Banner
+GameObject* backToMenu; // Back to menu bar
 
-GameObject* result;
-GameObject* playAgain;
-GameObject* exitButton;
+GameObject* result; // ye Score Bar
+GameObject* playAgain; // back to menu
+GameObject* exitButton; // exit button
 
 GameObject* titleGame; // Title Game
 GameObject* difficulty[3]; // Difficulty Game easy normal hard
@@ -62,8 +63,6 @@ void Game::updateFile() {
     // เรียกไฟล์เก็บข้อมูล
     FILE* fpointer;
     fpointer = fopen("setting.txt", "w+");
-    
-    printf("%d %d %d\n", highScore[0], highScore[1], highScore[2]);
     
     // ข้อมูลในไฟล์
     fprintf(fpointer, "easy: %d\n", highScore[0]);
@@ -117,8 +116,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, in
     }
     
     // IN GAME ASSET
+    scoreBar = new GameObject("assets/moves.png", renderer, 10, 25, 300, 150, 150, 75, "background", WIDTH, HEIGHT);
     backToMenu = new GameObject("assets/exit.png", renderer, 95, 5, 100, 100, 50, 50, "percent", WIDTH, HEIGHT);
-    
     
     // RESULT ASSET
     result = new GameObject("assets/score_page.png", renderer, 50, 40, 500, 500, WIDTH/1.6, HEIGHT/1.6, "percent", WIDTH, HEIGHT);
@@ -319,9 +318,10 @@ void Game::inGameRender(){ // render the updated position
     for (int i = 0; i < row*col; i++) {
         villager[i]->Render();
     }
+    scoreBar->Render();
     backToMenu->Render();
     
-    showNumber(2.5, 2.5, 80, 80, scoreMoves, "left"); // Render Number Score align left
+    showNumber(145, 15, 80, 80, scoreMoves, "left"); // Render Number Score align left
 
     SDL_RenderPresent(renderer);
 }
@@ -537,9 +537,6 @@ void Game::showNumber(float posX, float posY, int width, int height, int number,
         
         posX = (posX/100)*WIDTH - (displaySize/2);
         posY = refPosY + (posY/100)*(HEIGHT/1.6);
-    }else {
-        posX = (posX/100)*WIDTH;
-        posY = (posY/100)*HEIGHT;
     }
     
     // Change int to string and slice it to digit for display
