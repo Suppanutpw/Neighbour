@@ -504,7 +504,7 @@ void Game::randomMapping(int inpRow, int inpCol) { // generate puzzle table
     }
     
     // code for print generated table
-    for (int i = 0; i < row; i++) {
+    /* for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
             printf("(row %d, col %d) %d -> ", i, j, tableGame[i][j]);
             for (int k = 0; k < gameNeighbour[i][j].length ; k++) {
@@ -512,7 +512,7 @@ void Game::randomMapping(int inpRow, int inpCol) { // generate puzzle table
             }printf("\n");
         }
         printf("\n");
-    }printf("\n\n");
+    }printf("\n\n"); */
 }
 
 int Game::aroundMapping(int xrow, int ycol, int axrow, int aycol) { // first 2 are current last 2 are around check position
