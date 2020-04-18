@@ -109,10 +109,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, in
     backgroundGame = new GameObject("assets/BG-Game.png", renderer, 0, 0, WIDTH, HEIGHT, WIDTH, HEIGHT, "background", WIDTH, HEIGHT); // ฉากหลัง
     
     // เมื่อได้ asset ต้องปรับขนาดภาพด้วย
-    titleGame = new GameObject("assets/logo_start.png", renderer, 50, 25, 406, 414, WIDTH/2, HEIGHT/2.67,  "percent", WIDTH, HEIGHT);
+    titleGame = new GameObject("assets/logo_start.png", renderer, 50, 20, 600, 360, WIDTH/1.5, HEIGHT/3,  "percent", WIDTH, HEIGHT);
     for (int i = 0 ; i < 3; i++) {
         // pos x pos y is percent of sceen
-        difficulty[i] = new GameObject(difFilename[i], renderer, 50, 48+(18*i), 232, 140, WIDTH/2.67, HEIGHT/5.72, "percent", WIDTH, HEIGHT);
+        difficulty[i] = new GameObject(difFilename[i], renderer, 50, 45+(18*i), 232, 140, WIDTH/2.67, HEIGHT/5.72, "percent", WIDTH, HEIGHT);
     }
     
     // IN GAME ASSET
